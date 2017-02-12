@@ -1,0 +1,16 @@
+services:
+    todo_list.controller.main_controller:
+        class: TodoListBundle\Controller\MainController
+        arguments:
+            - "@todo_list.service.task_list"
+            - "@todo_list.service.task"
+        calls:
+            - [ setContainer, [ "@service_container" ]]
+
+    todo_list.controller.task_controller:
+        class: TodoListBundle\Controller\TaskController
+        arguments:
+            - "@todo_list.service.task_list"
+            - "@todo_list.service.task"
+        calls:
+            - [ setContainer, [ "@service_container" ]]

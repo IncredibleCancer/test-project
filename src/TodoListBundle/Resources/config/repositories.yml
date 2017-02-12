@@ -1,0 +1,12 @@
+services:
+    todo_list.repository.task_list:
+        class: TodoListBundle\Entity\TaskListRepository
+        factory: ["@doctrine.orm.default_entity_manager", getRepository]
+        arguments:
+            - TodoListBundle\Entity\TaskList
+
+    todo_list.repository.task:
+        class: TodoListBundle\Entity\TaskRepository
+        factory: ["@doctrine.orm.default_entity_manager", getRepository]
+        arguments:
+            - TodoListBundle\Entity\Task

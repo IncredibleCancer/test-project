@@ -1,0 +1,21 @@
+{% set taskStatus = ['ожидает выполнения', 'выполняется', 'выполнена'] %}
+
+{% extends '@TodoList/base.html.twig' %}
+
+{% block title %}задача {{ task.title }}{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-9">
+                <h1><small>{{ task.title }} : {{ taskStatus[task.status] }}</small></h1>
+            </div>
+            <div class="form-container">
+                {% include "@TodoList/Form/task_type.html.twig" with {
+                    saveBtnLabel : 'Обновить'
+                } %}
+                {% include "@TodoList/partials/Task/controls.html.twig" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

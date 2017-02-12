@@ -1,0 +1,20 @@
+<div class="task-controls col-xs-12 col-md-3">
+    {% if 0 == task.status %}
+        <a href="{{ path('todo.task.status', {
+            'taskId' : task.id,
+            'status' : 1,
+            'listId' : taskList.id
+        })
+        }}" class="btn btn-warning">Начать</a>
+    {% elseif 1 == task.status %}
+        <a href="{{ path('todo.task.status', {
+            'taskId' : task.id,
+            'status' : 2,
+            'listId' : taskList.id
+        }) }}" class="btn btn-success">Выполнено</a>
+    {% endif %}
+    <a href="{{ path('todo.task.remove', {
+        'taskId' : task.id,
+        'listId' : taskList.id
+    }) }}" class="btn btn-danger">Удалить</a>
+</div>

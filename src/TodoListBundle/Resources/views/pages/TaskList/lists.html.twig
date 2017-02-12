@@ -1,0 +1,21 @@
+{% extends '@TodoList/base.html.twig' %}
+
+{% block title %}ваши списки задач{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1><small>Списки задач</small></h1>
+            </div>
+            <div class="lists clearfix">
+                {% for taskList in taskLists %}
+                    <div class="list-item col-xs-12">
+                        <a href="{{ path('todo.list.show', { 'listId' : taskList.id }) }}" class="list-item__title">{{ taskList.title }}</a>
+                        <a href="{{ path('todo.list.remove', { 'listId' : taskList.id }) }}" class="btn btn-danger list-item__delete">Удалить</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

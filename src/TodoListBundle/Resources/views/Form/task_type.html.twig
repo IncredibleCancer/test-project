@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+<div class="form-group col-xs-12 col-md-6">
+    {{ form_label(form.title) }}
+    {{ form_errors(form.title) }}
+    {{ form_widget(form.title, { 'attr' : { 'class' : 'form-control' } }) }}
+</div>
+<div class="form-group col-xs-12 col-md-6">
+    {{ form_label(form.taskList) }}
+    {{ form_errors(form.taskList) }}
+    {{ form_widget(form.taskList, { 'attr' : { 'class' : 'form-control' } }) }}
+</div>
+<div class="form-group col-xs-12">
+    {{ form_label(form.description) }}
+    {{ form_errors(form.description) }}
+    {{ form_widget(form.description, { 'attr' : { 'class' : 'form-control' } }) }}
+</div>
+<div class="form-group col-xs-12">
+    {{ form_widget(form.save, { 'label' : saveBtnLabel | default('Сохранить'), 'attr' : { 'class' : 'btn btn-success' } }) }}
+</div>
+{{ form_end(form) }}

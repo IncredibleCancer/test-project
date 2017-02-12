@@ -1,0 +1,14 @@
+{% extends '@TodoList/base.html.twig' %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1><small>Список <b>{{ taskList.title }}</b> успешно сохранён</small></h1>
+
+                <a class="btn btn-default btn-sm" href="{{ path('todo.list.show', { 'listId' : taskList.id }) }}">Перейти к списку</a>
+                <a class="btn btn-default btn-sm" href="{{ path('todo.list.create') }}">Создать ещё один список</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

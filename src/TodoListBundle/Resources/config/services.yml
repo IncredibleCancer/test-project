@@ -1,0 +1,14 @@
+imports:
+    - { resource: controllers.yml }
+    - { resource: repositories.yml }
+
+services:
+    todo_list.service.task_list:
+        class: TodoListBundle\Services\TaskListService
+        arguments:
+            - "@todo_list.repository.task_list"
+
+    todo_list.service.task:
+        class: TodoListBundle\Services\TaskService
+        arguments:
+            - "@todo_list.repository.task"

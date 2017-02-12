@@ -1,0 +1,15 @@
+{% extends '@TodoList/base.html.twig' %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1><small>Задача <b>{{ task.title }}</b> успешно сохранена</small></h1>
+
+                <a class="btn btn-default btn-sm" href="{{ path('todo.task.show', { 'listId' : task.taskList.id, 'taskId' : task.id }) }}">Редактировать задачу</a>
+                <a class="btn btn-default btn-sm" href="{{ path('todo.task.create') }}">Создать ещё одну задачу</a>
+                <a class="btn btn-default btn-sm" href="{{ path('todo.list.show', {'listId' : task.taskList.id }) }}">Вернуться к списку</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
