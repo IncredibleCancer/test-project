@@ -1,14 +1,13 @@
-test-project
+test-project / todo-list
 ====
+how to start:
 
-A Symfony project created on February 4, 2017, 12:33 am.
+1. composer install
 
-composer install
+2. php bin/console doctrine:database:create
 
-php bin/console doctrine:database:create
+3. php bin/console doctrine:migrations:migrate
 
-php bin/console doctrine:migrations:migrate
-
-bower install
+4. bower install
 
 
