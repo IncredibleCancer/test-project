@@ -134,8 +134,11 @@ class TaskController extends Controller
             ]);
         }
 
+        $alertMessage = $request->query->has('alert') ? 'Сперва создайте список задач' : null;
+
         return $this->render('@TodoList/pages/TaskList/create_list.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'alertMessage' => $alertMessage
         ]);
     }
 
@@ -146,6 +149,12 @@ class TaskController extends Controller
      */
     public function createTaskAction(Request $request)
     {
+        if (!$this->taskListService->getAllTaskLists()) {
+            return $this->redirectToRoute('todo.list.create', [
+                'alert' => 'list'
+            ]);
+        }
+
         $task = new Task();
 
         $form = $this->createForm(TaskType::class, $task);

@@ -9,6 +9,9 @@
                 <h1><small>Добавить список задач</small></h1>
             </div>
             <div class="col-xs-12">
+                {% if alertMessage %}
+                    <div class="alert alert-warning">{{ alertMessage }}</div>
+                {% endif %}
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.title) }}
